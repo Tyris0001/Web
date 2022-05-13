@@ -1,0 +1,62 @@
+<html lang="de"><head>
+    <title>0x54</title>
+    <meta property="og:title" content="0x54 0x79 0x72 0x69 0x73">
+    <meta property="og:description" content="Wonder what it stands for..">
+    <meta property="og:image" content="/img.png">
+    <meta name="theme-color" content="#00ff8c">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+    <script>$.getJSON("https://api.ipify.org/?format=json",function(data) { document.getElementById("root").innerHTML = "root@" + data.ip + ":~$" })</script>
+</head>
+
+<body>
+    <header>
+        <div id="navwind">
+            <a href="./index.html" class="underline">/home</a>
+        </div>
+        <div id="termdiv">		
+            <span id="root">root@102.129.156.91:~$</span> <span id="cmdinp">ls</span><span class="cursor" onmouseover="this.stop()">█</span>
+        </div>
+    </header>
+    <fieldset id="Portfolio">
+        <legend id="content-title">Posts</legend>
+        <h3>
+            <a class="highlight-regular evt" href="./about.html" target="_self" redir="/about.html"><img class="folder" src="./folder.png" width="35" height="35"></a><span class="xpdt"> - About me</span>
+        </h3>
+        <h3>
+            <a class="highlight-regular evt" href="https://www.0x54.pw/" target="_self" redir="./accomplishments.html"><img class="folder" src="./folder.png" width="35" height="35"></a><span class="xpdt"> - Accomplishments</span>
+        </h3>
+    </fieldset>
+    <script>
+        var a_1 = document.getElementsByClassName("evt")
+
+        for(let i=0;i<a_1.length;i++){
+            console.log(a_1[i])
+            a_1[i].setAttribute("redir", a_1[i].getAttribute("href"))
+            a_1[i].setAttribute("href", "javascript:void(0)")
+            a_1[i].onclick = function() {
+                var a_2 = document.getElementById("cmdinp")
+                var a_3 = document.getElementsByClassName("xpdt")[i].textContent
+                a_3 = "cd "+a_3+" && cat info.txt"
+                a_2.textContent = ""
+                for(let x=0;x<a_3.length;x++){
+                    setTimeout(function() {
+                    a_2.textContent += a_3.charAt(x)
+                    }, 50 * x)
+                }
+                setTimeout(function() {
+                    window.location.href = a_1[i].getAttribute("redir")
+                    console.log(a_1[i].getAttribute("redir"))
+                }, a_3.length * 50 + 400)
+            }
+        }
+    </script>
+<footer>
+    <p>Sean Kurath 2022</p>
+</footer>
+
+
+</body></html>
